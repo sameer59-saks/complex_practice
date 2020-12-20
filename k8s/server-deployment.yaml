@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: server
+  template:
+    labels:
+      component: server
+  spec:
+    - name:  server
+      image: svarpe/multi-server
+      ports:
+        - containerPort: 5000
